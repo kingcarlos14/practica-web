@@ -1,24 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Task Manager Pro</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
-
 <body>
     <div class="main-container">
-        <h2>Task Manager</h1>
-            <form onsubmit="handleFormSubmit(event)">
-                <input required type="text" placeholder="Title" name="title">
-                <textarea placeholder="Add the task description" name="description" rows="5"></textarea>
-                <button type="submit">Submit</button>
-            </form>
-            <ul id="task-list-container" class="task-list"></ul>
+        <h2>Administrador de Tareas</h2>
+        
+        <div id="error-message" class="error-hide"></div>
+
+        <form id="task-form" onsubmit="handleFormSubmit(event)">
+            <input type="text" id="task-title" placeholder="Título (mín. 3 caracteres)" name="title">
+            <textarea id="task-desc" placeholder="Descripción (máx. 200 caracteres)" name="description" rows="3"></textarea>
+            
+            <div class="form-actions">
+                <button type="submit" id="btn-submit">Agregar Tarea</button>
+                <button type="button" id="btn-cancel" class="hidden" onclick="resetForm()">Cancelar</button>
+            </div>
+        </form>
+
+        <div class="task-stats">
+            <span>Total de tareas: <strong id="count-total">0</strong></span>
+        </div>
+        
+        <ul id="task-list-container" class="task-list"></ul>
     </div>
     <script src="./index.js"></script>
 </body>
-
 </html>
